@@ -11,13 +11,9 @@ io.on('connection', function (socket) {
     socket.on('disconnect', function () {
         console.log('user disconnected');
     });
-    socket.on('chat message', function (msg) {
-        io.emit('chat message', msg);
-        console.log('chat message: ' + msg);
-    });
     socket.on('pics message', function (msg) {
-        io.emit('pics message', msg);
-        console.log('pics message: ' + msg);
+        io.emit('pics message', msg.msg);
+        console.log('pics message: ' + JSON.stringify(msg));
     });
 
 });
